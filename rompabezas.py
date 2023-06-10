@@ -6,7 +6,7 @@ data = []
 
 def main():
     
-    print("BIENVENIDO AL ROMPABEZAS 4000v6\n\nProfesiones disponibles\n1. Alquimia\n2. Joyería\n")
+    print("BIENVENIDO AL ROMPABEZAS 4000v7\n\nProfesiones disponibles\n1. Alquimia\n2. Joyería\n")
 
     intro()
 
@@ -142,7 +142,7 @@ def input_data():
     system("TYPE CON > temp.txt")
 
 def read_data():
-    with open("temp.txt", 'r', encoding="utf8") as file:
+    with open("temp.txt", 'r') as file:
         next(file)
 
         for line in file:
