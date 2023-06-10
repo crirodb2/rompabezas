@@ -1,8 +1,11 @@
 import os
+from os import system
+from termcolor import colored
 
 data = []
 
 def main():
+    
     print("BIENVENIDO AL ROMPABEZAS 4000\n\nProfesiones disponibles\n1. Alquimia\n2. Joyería\n")
 
     intro()
@@ -29,7 +32,8 @@ def intro():
 
 
 def alquimia():
-    print("\nBienvenido al módulo de ALQUIMIA\nRellena el archivo con tu string de datos\n\n")
+    print("\nBienvenido al módulo de ALQUIMIA\n\nHaz click derecho para copiar tus datos")
+    print(colored("Cuando termines, presiona ENTER, CTRL+Z, ENTER\n\n","yellow"))
     
     input_data()
     read_data()
@@ -51,7 +55,10 @@ def pocion(omnium, primal, vial, elem_t3, elem_t2, agitating):
         cat = True
 
     profit = rev - cost
-    print(f"\nEl beneficio medio por fabricación de POCIÓN ELEMENTAL es de {int(profit)} de oro con catalizador en {cat}")
+
+    text_color = profit_color(profit)
+    catalizer_color = cat_color(cat)
+    print(f"\nEl beneficio medio por fabricación de POCIÓN ELEMENTAL es de", colored(int(profit),text_color), "de oro con catalizador en", colored(cat,catalizer_color))
 
 
 def vers(frost, hochen, tepid):
@@ -59,7 +66,8 @@ def vers(frost, hochen, tepid):
     rev = 0.95*3*tepid
     profit = rev - cost
 
-    print(f"\nEl beneficio medio por fabricación de AMPOLLA DE VERSATILIDAD es de {int(profit)} de oro")
+    text_color = profit_color(profit)
+    print(f"\nEl beneficio medio por fabricación de AMPOLLA DE VERSATILIDAD es de", colored(int(profit),text_color), f"de oro")
 
 def focus(frost, vial, hochen, saxi, focus, agitating):
     cost = 0.9*(frost + 5*vial + 20*hochen + 8*saxi)
@@ -73,11 +81,14 @@ def focus(frost, vial, hochen, saxi, focus, agitating):
     
     profit = rev - cost
 
-    print(f"\nEl beneficio medio por fabricación de POCIÓN DE ENFOQUE es de {int(profit)} de oro con catalizador en {cat}")
+    text_color = profit_color(profit)
+    catalizer_color = cat_color(cat)
+    print(f"\nEl beneficio medio por fabricación de POCIÓN DE ENFOQUE es de", colored(int(profit),text_color), "de oro con catalizador en", colored(cat,catalizer_color))
 
 
 def joyeria():
-    print("\nBienvenido al módulo de JOYERÍA\nRellena el archivo con tu string de datos\n\n")
+    print("\nBienvenido al módulo de JOYERÍA\n\nHaz click derecho para copiar tus datos")
+    print(colored("Cuando termines, presiona ENTER, CTRL+Z, ENTER\n\n","yellow"))
     
     input_data()
     read_data()
@@ -89,11 +100,17 @@ def joyeria():
 def engastes(engaste_t2, engaste_t3, polvo, diamante, serevita, orden, ambar, cinto, paño):
     engaste = (engaste_t2 + engaste_t3)/2
 
-    prospectar = 0.95*(engaste + 26*polvo + 0.3*diamante) - 0.9*(200*serevita + orden + 1.8) - paño
-    comprar = 0.95*engaste - 0.9*(12*polvo + orden + 20*ambar + cinto) - paño
+    profit = 0.95*(engaste + 26*polvo + 0.3*diamante) - 0.9*(200*serevita + orden + 1.8) - paño
+    prospectar = profit
 
-    print(f"\nEl beneficio medio por fabricación de engastes PROSPECTANDO es de {int(prospectar)} de oro")
-    print(f"El beneficio medio por fabricación de engastes COMPRANDO es de {int(comprar)} de oro\n")
+    text_color = profit_color(profit)
+    print(f"\nEl beneficio medio por fabricación de engastes PROSPECTANDO es de", colored(int(profit),text_color), f"de oro")
+
+    profit = 0.95*engaste - 0.9*(12*polvo + orden + 20*ambar + cinto) - paño
+    comprar = profit
+
+    text_color = profit_color(profit)
+    print(f"El beneficio medio por fabricación de engastes COMPRANDO es de", colored(int(profit),text_color), f"de oro\n")
 
     if(prospectar > 0 and comprar > 0):
         ratio = prospectar/comprar
@@ -105,15 +122,24 @@ def engastes(engaste_t2, engaste_t3, polvo, diamante, serevita, orden, ambar, ci
 def viales(vial, fuego, tapon, polvo):
     profit = 0.95*6*vial - 0.95*(fuego + 5*tapon + polvo + 0.2)
 
-    print(f"\nEl beneficio medio por fabricación de viales es de {int(profit)} de oro")
+    text_color = profit_color(profit)
+    print(f"\nEl beneficio medio por fabricación de viales es de", colored(int(profit),text_color), f"de oro")
 
 
+def profit_color(var):
+    if var >= 0:
+        return "green"
+    else:
+        return "red"
+    
+def cat_color(var):
+    if var:
+        return "green"
+    else:
+        return "red"
 
 def input_data():
-    with open("temp.txt", 'w') as file:
-        pass
-    os.system(f'start notepad temp.txt')
-    input("Pulsa cualquier tecla para continuar")
+    system("TYPE CON > temp.txt")
 
 def read_data():
     with open("temp.txt", 'r', encoding="utf8") as file:
