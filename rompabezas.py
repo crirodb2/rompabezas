@@ -6,7 +6,7 @@ data = []
 
 def main():
     
-    print("BIENVENIDO AL ROMPABEZAS 4000\n\nProfesiones disponibles\n1. Alquimia\n2. Joyería\n")
+    print("BIENVENIDO AL ROMPABEZAS 4000v6\n\nProfesiones disponibles\n1. Alquimia\n2. Joyería\n")
 
     intro()
 
@@ -32,7 +32,7 @@ def intro():
 
 
 def alquimia():
-    print("\nBienvenido al módulo de ALQUIMIA\n\nHaz click derecho para copiar tus datos")
+    print("\nBienvenido al módulo de ALQUIMIA\n\nHaz click derecho para pegar tus datos")
     print(colored("Cuando termines, presiona ENTER, CTRL+Z, ENTER\n\n","yellow"))
     
     input_data()
@@ -87,7 +87,7 @@ def focus(frost, vial, hochen, saxi, focus, agitating):
 
 
 def joyeria():
-    print("\nBienvenido al módulo de JOYERÍA\n\nHaz click derecho para copiar tus datos")
+    print("\nBienvenido al módulo de JOYERÍA\n\nHaz click derecho para pegar tus datos")
     print(colored("Cuando termines, presiona ENTER, CTRL+Z, ENTER\n\n","yellow"))
     
     input_data()
