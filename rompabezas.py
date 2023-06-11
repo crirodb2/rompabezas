@@ -88,7 +88,7 @@ def focus(frost, vial, hochen, saxi, focus, agitating):
 
 def joyeria():
     print("\nBienvenido al módulo de JOYERÍA\n\nHaz click derecho para pegar tus datos")
-    print(colored("Cuando termines, presiona ENTER, CTRL+Z, ENTER\n\n","yellow"))
+    print(colored("Cuando termines, presiona ENTER dos veces\n\n","yellow"))
     
     input_data2()
     read_data()
