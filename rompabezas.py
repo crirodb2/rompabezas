@@ -6,7 +6,7 @@ data = []
 
 def main():
     
-    print("BIENVENIDO AL ROMPABEZAS 4000v8\n\nProfesiones disponibles\n1. Alquimia\n2. Joyería\n")
+    print("BIENVENIDO AL ROMPABEZAS 4000v9\n\nProfesiones disponibles\n1. Alquimia\n2. Joyería\n")
 
     intro()
 
@@ -38,10 +38,9 @@ def alquimia():
     input_data2()
     read_data()
 
-    #elemT2, elemT3, omnium, primal, vial, agitating, tepid, frost, hochen, focus, saxi
+    #elemT2, elemT3, omnium, primal, vial, agitating, tepid, frost, hochen
     pocion(data[2], data[3], data[4], data[1], data[0], data[5])
     vers(data[7], data[8], data[6])
-    focus(data[7], data[4], data[8], data[10], data[9], data[5])
 
 
 def pocion(omnium, primal, vial, elem_t3, elem_t2, agitating):
@@ -68,22 +67,6 @@ def vers(frost, hochen, tepid):
 
     text_color = profit_color(profit)
     print(f"\nEl beneficio medio por fabricación de AMPOLLA DE VERSATILIDAD es de", colored(int(profit),text_color), f"de oro")
-
-def focus(frost, vial, hochen, saxi, focus, agitating):
-    cost = 0.9*(frost + 5*vial + 20*hochen + 8*saxi)
-    rev = 0.95*7.6*0.3*focus
-    cat = False
-
-    if agitating/cost < 0.07:
-        cost+=agitating
-        rev = 0.95*8*0.3*focus
-        cat = True
-    
-    profit = rev - cost
-
-    text_color = profit_color(profit)
-    catalizer_color = cat_color(cat)
-    print(f"\nEl beneficio medio por fabricación de POCIÓN DE ENFOQUE es de", colored(int(profit),text_color), "de oro con catalizador en", colored(cat,catalizer_color))
 
 
 def joyeria():
